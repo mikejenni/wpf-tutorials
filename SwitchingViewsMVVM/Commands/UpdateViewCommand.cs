@@ -10,11 +10,11 @@ namespace SwitchingViewsMVVM.Commands
 {
     public class UpdateViewCommand : ICommand
     {
-        private MainViewModel viewModel;
+        private BaseViewModel _viewModel;
 
-        public UpdateViewCommand(MainViewModel viewModel)
+        public UpdateViewCommand(BaseViewModel viewModel)
         {
-            this.viewModel = viewModel;
+            _viewModel = viewModel;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -28,11 +28,11 @@ namespace SwitchingViewsMVVM.Commands
         {
             if(parameter.ToString() == "Home")
             {
-                viewModel.SelectedViewModel = new HomeViewModel();
+                _viewModel.SelectedViewModel = new HomeViewModel();
             }
             else if(parameter.ToString() == "Account")
             {
-                viewModel.SelectedViewModel = new AccountViewModel();
+                _viewModel.SelectedViewModel = new AccountViewModel();
             }
         }
     }

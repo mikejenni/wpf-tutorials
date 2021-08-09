@@ -9,6 +9,18 @@ namespace SwitchingViewsMVVM.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+
+        private BaseViewModel _selectedViewModel;
+        public BaseViewModel SelectedViewModel
+        {
+            get { return _selectedViewModel; }
+            set
+            {
+                _selectedViewModel = value;
+                OnPropertyChanged(nameof(SelectedViewModel));
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)
